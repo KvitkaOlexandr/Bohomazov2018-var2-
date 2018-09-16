@@ -3,6 +3,9 @@ package lab2;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -18,40 +21,20 @@ public class Task4 {
         this("");
     }
 
-    private char getBiggestChar() {
-        char max = 0;
-        for (int i = 0; i < text.length(); i++) {
-            if (text.charAt(i) > max) {
-                max = text.charAt(i);
+    public Hashtable<String, Integer> wordFreqs() {
+        String[] words = text.split("\\P{L}");
+        Hashtable<String, Integer> dict = new Hashtable<>();
+        for (String w : words) {
+            if (!w.isEmpty()) {
+                Integer previousCount;
+                if(dict.containsKey(w))
+                    previousCount = dict.get(w) + 1;
+                else
+                    previousCount = 1;
+                dict.put(w, previousCount);
             }
         }
-        return max;
-    }
-
-    public Object[] orderCharsByFrequency() {
-        int[] freqs = new int[getBiggestChar() + 1];
-        for (int i = 0; i < text.length(); i++) {
-            for (int j = 0; j < text.length(); j++) {
-                if (text.charAt(i) == text.charAt(j)) {
-                    freqs[text.charAt(i)]++;
-                }
-            }
-        }
-        ArrayList<Character> list = new ArrayList<>();
-        for (int i = 0; i < freqs.length; i++) {
-            int maxFreq = 0;
-            int maxIndex = 0;
-            for (int j = 0; j < freqs.length; j++) {
-                if (freqs[j] > maxFreq) {
-                    maxFreq = freqs[j];
-                    maxIndex = j;
-                }
-            }/**/
-            if (maxFreq != 0)
-                list.add((char) maxIndex);
-            freqs[maxIndex] = 0;
-        }
-        return list.toArray();
+        return dict;
     }
 
     public String getText() {

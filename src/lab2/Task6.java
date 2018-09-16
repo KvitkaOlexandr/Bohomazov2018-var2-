@@ -2,45 +2,30 @@ package lab2;
 
 public class Task6 {
 
-    private int width;
-    private int height;
-    private char ch;
+    private int[] array;
 
-    public Task6(char ch, int width, int height) {
-        this.width = width;
-        this.height = height;
-        this.ch = ch;
+    public Task6(int[] array) {
+        this.array = array;
     }
 
-    public void drawRectangle() {
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++)
-                System.out.print(ch);
-            System.out.println();
+    public Task6() {
+        this(new int[0]);
+    }
+
+    public int evenSum() {
+        int sum = 0;
+        for (int d : array) {
+            if (d % 2 != 0)
+                sum += d;
         }
+        return sum;
     }
 
-    public int getWidth() {
-        return width;
+    public int[] getArray() {
+        return array;
     }
 
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
-    public char getCh() {
-        return ch;
-    }
-
-    public void setCh(char ch) {
-        this.ch = ch;
+    public void setArray(int[] array) {
+        this.array = array;
     }
 }
