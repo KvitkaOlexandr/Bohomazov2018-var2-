@@ -1,30 +1,41 @@
 package lab2;
 
-public class Task5 {
-    private String string;
+import utils.ArrayUtils;
 
-    public Task5(String string) {
-        this.string = string;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
+import static utils.ArrayUtils.OrderType;
+
+public class Task5 {
+
+    private int[] array;
+
+    public Task5(int[] array) {
+        this.array = array;
     }
 
     public Task5() {
-        this("");
+        this(new int[0]);
     }
 
-    public String reverse() {
-        StringBuilder sb = new StringBuilder(string);
-        for (int i = 0; i < string.length(); i++)
-            sb.setCharAt(string.length() - 1 - i, string.charAt(i));
-        return sb.toString();
+    public int[] ascOrder() {
+        return unbox(ArrayUtils.sort(box(array), OrderType.ASC));
     }
 
-    public String getString() {
-        return string;
+    private Integer[] box(int[] array) {
+        return IntStream.of(array).boxed().toArray(Integer[]::new);
     }
 
-    public void setString(String string) {
-        this.string = string;
+    private int[] unbox(Integer[] array) {
+        return Stream.of(array).mapToInt(Integer::intValue).toArray();
     }
 
+    public int[] getArray() {
+        return array;
+    }
 
+    public void setArray(int[] array) {
+        this.array = array;
+    }
 }

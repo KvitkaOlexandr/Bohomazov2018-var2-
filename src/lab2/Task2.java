@@ -19,44 +19,52 @@ public class Task2 {
         this(new double[0]);
     }
 
-    public double prodEven() {
-        double prod = 1;
-        for (int i = 1; i < array.length; i += 2) {
-            prod *= array[i];
-        }
-        return prod;
-    }
-
-    public double sumBetweenFirstAndLastNulls() {
-        int firstIndex = ArrayUtils.indexOf(array, 0, OrderType.ASC);
-        int lastIndex = ArrayUtils.indexOf(array, 0, OrderType.DESC);
-        if (firstIndex == -1)
-            firstIndex = 0;
-        if (lastIndex == -1)
-            lastIndex = array.length - 1;
+    public double sumPositive() {
+        if (array.length == 0)
+            throw new IndexOutOfBoundsException();
         double sum = 0;
-        for (int i = firstIndex + 1; i < lastIndex; i++) {
-            sum += array[i];
+        for (double d : array) {
+            if (d > 0)
+                sum += d;
         }
         return sum;
     }
 
-    public double[] orderPositiveThanNegative() {
-        double[] result = new double[array.length];
-        int j = 0;
-        for (double d : array) {
-            if (d >= 0) {
-                result[j] = d;
-                j++;
-            }
+    public double[] descOrder() {
+        return unbox(ArrayUtils.sort(box(array), OrderType.DESC));
+    }
+
+    public double prodBetweenAsbMinAndAbsMax() {
+        if (array.length == 0)
+            throw new IndexOutOfBoundsException();
+        int min = Math.min(absMinIndex(), absMaxIndex());
+        int max = Math.max(absMinIndex(), absMaxIndex());
+        double prod = 1;
+        for (int i = min + 1; i < max; i++)
+            prod *= array[i];
+        return prod;
+    }
+
+    int absMinIndex() {
+        if (array.length == 0)
+            return -1;
+        int index = 0;
+        for (int i = 1; i < array.length; i++) {
+            if (Math.abs(array[i]) < Math.abs(array[index]))
+                index = i;
         }
-        for (double d : array) {
-            if (d < 0) {
-                result[j] = d;
-                j++;
-            }
+        return index;
+    }
+
+    int absMaxIndex() {
+        if (array.length == 0)
+            return -1;
+        int index = 0;
+        for (int i = 1; i < array.length; i++) {
+            if (Math.abs(array[i]) > Math.abs(array[index]))
+                index = i;
         }
-        return result;
+        return index;
     }
 
     private Double[] box(double[] array) {
