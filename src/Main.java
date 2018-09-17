@@ -1,11 +1,17 @@
+import lab1.task1.PasswordValidator;
+import lab1.task2.NumberUtils;
 import lab2.*;
 import utils.ArrayUtils;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        lab2();
+        lab1();
+        //lab2();
     }
 
     static void lab2() {
@@ -29,5 +35,42 @@ public class Main {
         System.out.printf("Even sum: %d\n", task6.evenSum());
         Task7 task7 = new Task7(5, 5, 6);
         System.out.println(task7.isTriangle());
+    }
+
+    static void lab1(){
+        //Task 1
+        InputStreamReader is = new InputStreamReader(System.in);
+        BufferedReader bis = new BufferedReader(is);
+
+        try {
+            System.out.println("Input password:");
+
+            String password = bis.readLine();
+            PasswordValidator pc = new PasswordValidator();
+
+            if(pc.validate(password))
+                System.out.println("Correct password");
+            else
+                System.out.println("Wrong password");
+
+        } catch (IOException e) {
+            System.out.print("Input Error " + e);
+        }
+
+        //Task 2
+        try {
+            NumberUtils numberUtils = new NumberUtils();
+            System.out.println("enter number of integers");
+            int num = numberUtils.getOneInteger();
+
+            System.out.println("enter numbers");
+            int[] arrInt = numberUtils.getNIntegers(num);
+
+            System.out.println("dividable by 9 \r\n" + numberUtils.findDividableIntegers(arrInt, 9));
+            System.out.println("dividable by 3 \r\n" + numberUtils.findDividableIntegers(arrInt, 3));
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Wrong input: " + e);
+        }
     }
 }
