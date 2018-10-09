@@ -1,11 +1,5 @@
 package lab2;
 
-import utils.ArrayUtils;
-
-import java.util.ArrayList;
-
-import static utils.ArrayUtils.OrderType;
-
 import java.util.Arrays;
 
 public class Task1 {

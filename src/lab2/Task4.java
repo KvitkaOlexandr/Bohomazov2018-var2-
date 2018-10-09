@@ -1,13 +1,6 @@
 package lab2;
 
-import javafx.util.Pair;
-
-import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.HashMap;
 import java.util.Hashtable;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class Task4 {
 
@@ -27,7 +20,7 @@ public class Task4 {
         for (String w : words) {
             if (!w.isEmpty()) {
                 Integer previousCount;
-                if(dict.containsKey(w))
+                if (dict.containsKey(w))
                     previousCount = dict.get(w) + 1;
                 else
                     previousCount = 1;

@@ -1,7 +1,8 @@
+package lab1;
+
 import lab1.task1.PasswordValidator;
 import lab1.task2.NumberUtils;
 import lab2.*;
-import utils.ArrayUtils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,8 +11,8 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-//        lab1();
-        lab2();
+        lab1();
+        //lab2();
     }
 
     static void lab2() {
