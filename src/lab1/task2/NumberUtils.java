@@ -14,6 +14,11 @@ public class NumberUtils {
         return in.nextInt();
     }
 
+    @Override
+    public String toString() {
+        return "NumberUtils";
+    }
+
     public int[] getNIntegers(int num) {
 
         if (num < 1) {
