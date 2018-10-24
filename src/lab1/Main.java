@@ -18,7 +18,7 @@ public class Main {
     static void lab2() {
         Task1 task1 = new Task1(new String[]{"you", "cool", "why", "hi", "are", "why"});
         System.out.printf("Longest string: %s, it\'s length: %d \n", task1.longestString(), task1.longestString().length());
-        Task2 task2 = new Task2(new double[]{1, 2, 0, 0.6, 0.8, -0.9, 0.5, 15, 16});
+        Task2Code task2 = new Task2Code(new double[]{1, 2, 0, 0.6, 0.8, -0.9, 0.5, 15, 16});
         System.out.printf("%.2f\n", task2.sumPositive());
         System.out.printf("%.2f\n", task2.prodBetweenAsbMinAndAbsMax());
         System.out.println(Arrays.toString(task2.descOrder()));
