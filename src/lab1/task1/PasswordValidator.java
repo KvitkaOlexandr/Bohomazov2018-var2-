@@ -3,6 +3,12 @@ package lab1.task1;
 import java.util.Objects;
 
 public class PasswordValidator {
+	
+	private String realPassword;
+	
+	public PasswordValidator(String password) {
+        realPassword = password;
+    }
 
     public String getRealPassword() {
         return realPassword;
@@ -12,17 +18,12 @@ public class PasswordValidator {
         this.realPassword = realPassword;
     }
 
-    private String realPassword;
-
+    
     public boolean validate(String password){
         return realPassword.equals(password);
     }
 
-    public PasswordValidator(String password) {
-        realPassword = password;
-    }
-
-
+    
     @Override
     public String toString() {
         return "PasswordValidator{" +
