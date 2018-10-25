@@ -1,6 +1,7 @@
 package lab2;
 
-import java.util.Hashtable;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Task4 {
 
@@ -14,9 +15,9 @@ public class Task4 {
         this("");
     }
 
-    public Hashtable<String, Integer> wordFreqs() {
+    public Map<String, Integer> wordFreqs() {
         String[] words = text.split("\\P{L}");
-        Hashtable<String, Integer> dict = new Hashtable<>();
+        Map<String, Integer> dict = new HashMap<>();
         for (String w : words) {
             if (!w.isEmpty()) {
                 Integer previousCount;
