@@ -12,10 +12,8 @@ public class Main {
         lab2();
     }
 
-    static void lab2() {
-        Task1 task1 = new Task1(new String[]{"you", "cool", "why", "hi", "are", "why"});
-        System.out.printf("Longest string: %s, it\'s length: %d \n", task1.longestString(),
-                task1.longestString().length());
+    private static void lab2() {
+        task1();
         double[] tempArray = new double[]{1, 2, 0, 0.6, 0.8, -0.9, 0.5, 15, 16};
         System.out.println("Array for task2: " + Arrays.toString(tempArray));
 
@@ -41,6 +39,20 @@ public class Main {
         System.out.printf("Even sum: %d\n", task6.evenSum());
         Task7 task7 = new Task7(5, 5, 6);
         System.out.println(task7.isTriangle());
+    }
+
+    private static void task1() {
+        //Task1 task1 = new Task1(new String[]{"you", "cool", "why", "hi", "are", "why"});
+        Task1 t = new Task1(5);
+        String[] strings = {"you", "cool", "why", "hi", "are", "why"};
+        for (int i = 0; i < 6; i++) {
+            t.addString(strings[i]);
+        }
+        t.deleteString(0);
+        for (int i = 0; i < t.getStrings().length; i++) {
+            System.out.println(t.getStrings()[i]);
+        }
+        System.out.printf("Longest string: %s, it\'s length: %d \n", t.longestString(), t.longestString().length());
     }
 
 }
