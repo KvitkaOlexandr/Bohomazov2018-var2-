@@ -7,14 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class NumberUtils {
-
-    public int getOneInteger(){
+public class CmpUtils {
+	
+	public static int getOneInteger(){
         Scanner in = new Scanner(System.in);
         return in.nextInt();
     }
-
-    public int[] getNIntegers(int num) {
+	
+	public static int[] getNIntegers(int num) {
 
         if (num < 1) {
             throw new IllegalArgumentException("number of integers can't be less than 1");
@@ -40,16 +40,4 @@ public class NumberUtils {
 
         return arrInt;
     }
-
-    public List<Integer> findDividableIntegers(int[] intArray, int divider){
-        List<Integer> intList = new ArrayList<>();
-
-        for (int el : intArray) {
-            if(el % divider == 0){
-                intList.add(el);
-            }
-        }
-        return intList;
-    }
-
 }
