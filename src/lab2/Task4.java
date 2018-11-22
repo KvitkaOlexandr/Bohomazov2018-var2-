@@ -1,13 +1,7 @@
 package lab2;
 
-import javafx.util.Pair;
-
-import java.util.ArrayList;
-import java.util.Dictionary;
 import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
+import java.util.Map;
 
 public class Task4 {
 
@@ -21,13 +15,13 @@ public class Task4 {
         this("");
     }
 
-    public Hashtable<String, Integer> wordFreqs() {
+    public Map<String, Integer> wordFreqs() {
         String[] words = text.split("\\P{L}");
-        Hashtable<String, Integer> dict = new Hashtable<>();
+        Map<String, Integer> dict = new HashMap<>();
         for (String w : words) {
             if (!w.isEmpty()) {
                 Integer previousCount;
-                if(dict.containsKey(w))
+                if (dict.containsKey(w))
                     previousCount = dict.get(w) + 1;
                 else
                     previousCount = 1;
