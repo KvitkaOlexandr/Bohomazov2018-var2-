@@ -10,9 +10,9 @@ public class Main {
 		Vector [] vectors = {new Vector(new int[]{2, -1, 10}),
 							new Vector(new int[]{1, 2, 0}),
 							new Vector(new int[]{4, -2, 20})};
-		System.out.println("Absolute");
+		System.out.println("Module");
 		for(int i = 0; i < vectors.length; i++) {
-			System.out.println(vectors[i].absolute());
+			System.out.println(vectors[i].length());
 		}
 		
 		System.out.println("\nOrtogonal");
