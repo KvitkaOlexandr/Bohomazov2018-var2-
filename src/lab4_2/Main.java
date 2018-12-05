@@ -7,5 +7,6 @@ public class Main {
         payment.addItem("gasoline", 45);
         System.out.println("total cost " + payment.getTotalCost());
         System.out.println("items " + payment.getAllItems());
+
     }
 }
