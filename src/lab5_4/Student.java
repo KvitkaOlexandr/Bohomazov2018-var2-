@@ -3,7 +3,7 @@ package lab5_4;
 import java.io.Serializable;
 import java.util.Objects;
 
-public abstract class Student implements Abiturient {
+public abstract class Student implements Abiturient, Serializable {
     protected String name;
     protected String address;
     protected int numCourses;

@@ -1,15 +1,17 @@
 package lab5_3;
 
 
-import java.io.IOException;
+import java.io.*;
+
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        var classTextOperator = new SubstringReplacer();
-        classTextOperator.ReplaceWithLongerString("src/lab5_3/MainCopy.java",
-                "src/lab5_3/MainCopyOutput.txt", "public");
+        StringDao inputDao = new StringDaoImpl("src/lab5_3/MainCopy.java");
+        StringDao outputDao = new StringDaoImpl("src/lab5_3/MainCopyOutput.txt");
 
+        SubstringReplacer substringReplacer = new SubstringReplacer();
+        substringReplacer.setStringToReplace(inputDao.getString());
+        String result = substringReplacer.replaceWithLongerString("public");
+        outputDao.setString(result);
     }
-
-
 }

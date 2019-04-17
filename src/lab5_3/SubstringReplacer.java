@@ -1,30 +1,41 @@
 package lab5_3;
 
 import java.io.*;
+import java.util.Objects;
 
 public class SubstringReplacer {
-    public String ReplaceWithLongerString(String line, String substringToReplace){
-        return line.replace( substringToReplace, substringToReplace + "LONGER");
+
+    private String stringToReplace;
+
+    public String getStringToReplace() {
+        return stringToReplace;
     }
 
-    public void ReplaceWithLongerString(String inputFilename, String outputFilename, String substringToReplace)
-            throws IOException {
-        File inputFile = new File(inputFilename);
-        File outputFile = new File(outputFilename);
+    public void setStringToReplace(String stringToReplace) {
+        this.stringToReplace = stringToReplace;
+    }
 
-        BufferedReader in = new BufferedReader(new FileReader(inputFile) );
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(outputFile)));
+    public String replaceWithLongerString(String substringToReplace){
+        return stringToReplace.replace( substringToReplace, substringToReplace + "LONGER");
+    }
 
-        StringBuilder stringBuilder = new StringBuilder();
-        String s;
-        while ( (s = in.readLine()) != null ) {
-            stringBuilder.append(ReplaceWithLongerString(s, substringToReplace));
-            stringBuilder.append("\r\n");
-        }
+    @Override
+    public String toString() {
+        return "SubstringReplacer{" +
+                "stringToReplace='" + stringToReplace + '\'' +
+                '}';
+    }
 
-        out.print(stringBuilder.toString());
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SubstringReplacer that = (SubstringReplacer) o;
+        return Objects.equals(stringToReplace, that.stringToReplace);
+    }
 
-        in.close();
-        out.close();
+    @Override
+    public int hashCode() {
+        return Objects.hash(stringToReplace);
     }
 }
