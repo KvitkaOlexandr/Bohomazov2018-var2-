@@ -1,4 +1,4 @@
-package lab2_v2.Task6;
+package lab2_v2.Task2;
 
 import java.util.Arrays;
 import java.util.concurrent.SubmissionPublisher;

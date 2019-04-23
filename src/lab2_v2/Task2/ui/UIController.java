@@ -1,5 +1,5 @@
-package lab2_v2.Task6.ui;
-import lab2_v2.Task6.NumbersModel;
+package lab2_v2.Task2.ui;
+import lab2_v2.Task2.NumbersModel;
 
 public class UIController {
 

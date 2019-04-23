@@ -1,12 +1,11 @@
-package lab2_v2.Task6.ui;
+package lab2_v2.Task2.ui;
 
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import lab2_v2.Task1.StringsModel;
-import lab2_v2.Task6.NumbersModel;
+import lab2_v2.Task2.NumbersModel;
 
 import java.util.concurrent.Flow;
 

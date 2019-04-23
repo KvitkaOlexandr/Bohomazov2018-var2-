@@ -1,6 +1,6 @@
-package lab2_v2.Task6.console;
+package lab2_v2.Task2.console;
 
-import lab2_v2.Task6.NumbersModel;
+import lab2_v2.Task2.NumbersModel;
 
 import java.util.Arrays;
 import java.util.concurrent.Flow;

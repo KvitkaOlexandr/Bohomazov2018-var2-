@@ -1,9 +1,9 @@
-package lab2_v2.Task6.ui;
+package lab2_v2.Task2.ui;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import lab2_v2.Task6.NumbersModel;
+import lab2_v2.Task2.NumbersModel;
 
 public class Driver extends Application {
 

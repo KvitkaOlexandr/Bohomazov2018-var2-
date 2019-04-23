@@ -1,8 +1,8 @@
-package lab2_v2.Task6;
+package lab2_v2.Task2;
 
-import lab2_v2.Task6.console.ConsoleController;
-import lab2_v2.Task6.console.ConsoleView;
-import lab2_v2.Task6.ui.Driver;
+import lab2_v2.Task2.console.ConsoleController;
+import lab2_v2.Task2.console.ConsoleView;
+import lab2_v2.Task2.ui.Driver;
 
 
 public class Main {
