@@ -1,20 +1,20 @@
-package lab2_v2.Task1;
+package lab2_v2.Task2;
 
-import lab2_v2.Task1.console.ConsoleController;
-import lab2_v2.Task1.console.ConsoleView;
-import lab2_v2.Task1.ui.Driver;
-import lab2_v2.Task1.ui.UIView;
+import lab2_v2.Task2.console.ConsoleController;
+import lab2_v2.Task2.console.ConsoleView;
+import lab2_v2.Task2.ui.Driver;
+
 
 public class Main {
 
     public static void main(String[] args) {
-        StringsModel model = new StringsModel(10);
+        NumbersModel model = new NumbersModel();
         Thread cuiThread = new Thread() {
             @Override
             public void run() {
                 ConsoleView consoleView = new ConsoleView();
                 ConsoleController consoleController = new ConsoleController(model, consoleView);
-                model.addObserver(consoleView);
+                model.getPublisher().subscribe(consoleView);
                 consoleController.run();
             }
         };
