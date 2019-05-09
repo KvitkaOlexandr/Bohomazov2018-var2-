@@ -1,4 +1,4 @@
-package task3;
+package lab7;
 
 public class Main {
 
@@ -7,7 +7,7 @@ public class Main {
 	}
 	
 	public static void task1() {
-		MyFrame.window("Task 3");
+		MyFrame.window("lab7");
 
 	}
 

@@ -1,4 +1,4 @@
-package task3;
+package lab7;
 
 public class PerimeterCalculator {
     public static double CalculateTrianglePerimeter(double aSide, double bSide, double cSide){
