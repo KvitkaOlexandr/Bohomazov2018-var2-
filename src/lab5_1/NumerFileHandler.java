@@ -7,7 +7,7 @@ public class NumerFileHandler {
 
     public ArrayList<Integer> readFromText(String filename) throws IOException {
         var inputFile = new File(filename);
-        var bufferedReader = new BufferedReader(new FileReader(inputFile) );
+        var bufferedReader = new BufferedReader(new FileReader(inputFile));
         var streamTokenizer = new StreamTokenizer(bufferedReader);
 
         var resList = new ArrayList<Integer>();
@@ -26,15 +26,11 @@ public class NumerFileHandler {
         var fileInputStream = new FileInputStream(filename);
         var inputFile = new DataInputStream(fileInputStream);
 
-        while (!endOfFile)
-        {
-            try
-            {
+        while (!endOfFile) {
+            try {
                 int number = inputFile.readInt();
                 resList.add(number);
-            }
-            catch (EOFException e)
-            {
+            } catch (EOFException e) {
                 endOfFile = true;
             }
         }
@@ -46,8 +42,8 @@ public class NumerFileHandler {
     public void binaryFileToConsole(String filename) throws IOException {
         File inputFile = new File(filename);
 
-        BufferedInputStream in = new BufferedInputStream (
-                new FileInputStream(inputFile) );
+        BufferedInputStream in = new BufferedInputStream(
+                new FileInputStream(inputFile));
 
         int c;
         while ((c = in.read()) != -1)
@@ -57,7 +53,7 @@ public class NumerFileHandler {
 
     public void writeToText(String filename, ArrayList<Integer> list) throws IOException {
         var outputFile = new File(filename);
-        var printWriter = new PrintWriter(new BufferedWriter(new FileWriter(outputFile) ) );
+        var printWriter = new PrintWriter(new BufferedWriter(new FileWriter(outputFile)));
 
         for (int number :
                 list) {

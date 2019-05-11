@@ -1,5 +1,6 @@
 package lab2_v2.Task1.ui;
 
+import javafx.application.Platform;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -23,8 +24,13 @@ public class UIView extends VBox implements Observer {
 
     @Override
     public void update(StringsModel model) {
-        listView.getItems().setAll(model.getStrings());
-        longestStringLabel.setText("Strings changed! New strings array: " + model.longestString());
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                listView.getItems().setAll(model.getStrings());
+                longestStringLabel.setText("Strings changed! New strings array: " + model.longestString());
+            }
+        });
     }
 
     public void showErrorMessage(String err) {

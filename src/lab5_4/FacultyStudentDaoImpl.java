@@ -10,7 +10,7 @@ public class FacultyStudentDaoImpl implements FacultyStudentDao {
     public FacultyStudent getStudent() throws IOException, ClassNotFoundException {
         BufferedInputStream bos = new BufferedInputStream(new FileInputStream(studFilename));
         ObjectInputStream oos = new ObjectInputStream(bos);
-        FacultyStudent student = (FacultyStudent)oos.readObject();
+        FacultyStudent student = (FacultyStudent) oos.readObject();
         oos.close();
         return student;
     }

@@ -13,8 +13,8 @@ public class NumbersModel {
 
     public NumbersModel(int[] array) {
         this.array = array;
-        this.currentPosition = 0;
-        this.publisher = new SubmissionPublisher<>();
+        currentPosition = 0;
+        publisher = new SubmissionPublisher<>();
     }
 
     public NumbersModel() {
