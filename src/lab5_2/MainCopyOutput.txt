@@ -1,0 +1,11 @@
+package lab5_2;
+
+
+private class MainCopy {
+    private static void main(String[] args){
+
+
+    }
+
+
+}

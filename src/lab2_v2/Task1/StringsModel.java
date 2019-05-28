@@ -1,15 +1,19 @@
-package lab2;
+package lab2_v2.Task1;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 
-public class Task1 {
+public class StringsModel implements Observable {
 
     private String[] strings;
     private int currentPosition;
+    private List<Observer> observers;
 
-    public Task1(int size) {
+    public StringsModel(int size) {
         strings = new String[size];
+        observers = new ArrayList<>();
         currentPosition = 0;
     }
 
@@ -21,12 +25,14 @@ public class Task1 {
             System.arraycopy(strings, 0, newStrings, 0, strings.length);
             strings = newStrings;
         }
+        notifyObservers();
     }
 
     public void deleteString(int position) {
         if (currentPosition - position >= 0)
             System.arraycopy(strings, position + 1, strings, position, currentPosition - position);
         currentPosition--;
+        notifyObservers();
     }
 
     public String longestString() {
@@ -51,10 +57,27 @@ public class Task1 {
         for (int i = 0; i < newStrings.length; i++) {
             setString(newStrings[i], i);
         }
+        notifyObservers();
     }
 
     public void setString(String string, int pos) {
         strings[pos] = string;
+    }
+
+    @Override
+    public void addObserver(Observer o) {
+        observers.add(o);
+    }
+
+    @Override
+    public void removeObserver(Observer o) {
+        observers.remove(o);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (Observer o : observers)
+            o.update(this);
     }
 
     @Override
@@ -82,7 +105,7 @@ public class Task1 {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Task1 other = (Task1) obj;
+        StringsModel other = (StringsModel) obj;
         return Arrays.equals(strings, other.strings);
     }
 }

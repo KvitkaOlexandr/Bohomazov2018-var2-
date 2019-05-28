@@ -1,15 +1,12 @@
-package lab2;
-
-import utils.ArrayUtils;
-
-import static utils.ArrayUtils.OrderType;
+package lab2.task2;
 
 import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
 
+
 public class Task2 {
 
-    private double array[];
+    protected double array[];
 
     public Task2(double[] array) {
         this.array = array;
@@ -17,32 +14,6 @@ public class Task2 {
 
     public Task2() {
         this(new double[0]);
-    }
-
-    public double sumPositive() {
-        if (array.length == 0)
-            throw new IndexOutOfBoundsException();
-        double sum = 0;
-        for (double d : array) {
-            if (d > 0)
-                sum += d;
-        }
-        return sum;
-    }
-
-    public double[] descOrder() {
-        return unbox(ArrayUtils.sort(box(array), OrderType.DESC));
-    }
-
-    public double prodBetweenAsbMinAndAbsMax() {
-        if (array.length == 0)
-            throw new IndexOutOfBoundsException();
-        int min = Math.min(absMinIndex(), absMaxIndex());
-        int max = Math.max(absMinIndex(), absMaxIndex());
-        double prod = 1;
-        for (int i = min + 1; i < max; i++)
-            prod *= array[i];
-        return prod;
     }
 
     int absMinIndex() {
@@ -67,11 +38,11 @@ public class Task2 {
         return index;
     }
 
-    private Double[] box(double[] array) {
+    protected Double[] box(double[] array) {
         return DoubleStream.of(array).boxed().toArray(Double[]::new);
     }
 
-    private double[] unbox(Double[] array) {
+    protected double[] unbox(Double[] array) {
         return Stream.of(array).mapToDouble(Double::doubleValue).toArray();
     }
 
@@ -83,3 +54,7 @@ public class Task2 {
         this.array = array;
     }
 }
+
+
+
+
